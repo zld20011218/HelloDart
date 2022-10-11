@@ -1,3 +1,5 @@
+import 'package:dcat/dcat.dart' as dcat;
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -12,10 +14,10 @@ void main(List<String> arguments) {
   ArgResults argResults = parser.parse(arguments);
   final paths = argResults.rest;
 
-  dcat(paths, showLineNumbers: argResults[lineNumber] as bool);
+  dcat1(paths, showLineNumbers: argResults[lineNumber] as bool);
 }
 
-Future<void> dcat(List<String> paths, {bool showLineNumbers = false}) async {
+Future<void> dcat1(List<String> paths, {bool showLineNumbers = false}) async {
   if (paths.isEmpty) {
     // No files provided as arguments. Read from stdin and print each line.
     await stdin.pipe(stdout);
